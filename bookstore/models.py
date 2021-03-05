@@ -2,10 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Book(models.Model):
-    isbn = models.CharField(max_length=16)
+    isbn = models.CharField(max_length=16)      # isbn 13
     title = models.CharField(max_length=512)
     author = models.CharField(max_length=128)
-    publisher = models.CharField(max_length=128)
     publish_date = models.CharField(max_length=32)
     average_rating = models.DecimalField(max_digits=3, decimal_places=2)
     ratings_count = models.IntegerField()
@@ -17,7 +16,6 @@ class Book(models.Model):
                 isbn: {self.isbn}\n
                 title: {self.title}\n
                 author: {self.author}\n
-                publisher: {self.publisher}\n
                 publish_date: {self.publish_date}\n
                 average rating: {self.average_rating}\n
                 ratings count: {self.ratings_count}\n
