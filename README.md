@@ -1,4 +1,5 @@
-# OnlineBookStore
+# Mybrary
+An online book place.\
 This is a small project building a simple website for NT213 class.
 
 ## Prerequisite
