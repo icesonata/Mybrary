@@ -13,13 +13,13 @@ class Book(models.Model):
 
     def __str__(self):
         return f"""
-                isbn: {self.isbn}\n
-                title: {self.title}\n
-                author: {self.author}\n
-                publish_date: {self.publish_date}\n
-                average rating: {self.average_rating}\n
-                ratings count: {self.ratings_count}\n
-                page count: {self.page_count}\n
+                isbn: {self.isbn}
+                title: {self.title}
+                author: {self.author}
+                publish_date: {self.publish_date}
+                average rating: {self.average_rating}
+                ratings count: {self.ratings_count}
+                page count: {self.page_count}
                 description: {self.description}
                 """
 
