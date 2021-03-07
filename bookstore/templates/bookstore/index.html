@@ -2,17 +2,23 @@
 {% load static %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static 'bookstore/styles/index.css' %}">
 {% endblock %}
 
 {% block title %}
+    Mybrary
 {% endblock %}
 
 {% block body %}
-    <h1 class="cover-heading">Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-        <a class="btn btn-lg btn-secondary" href="{% url 'bookstore:search' %}" >Search for your own book</a>
-    </p>
+    <!-- <h1 class="cover-heading">Online Book Station</h1> -->
+    <div class="container">
+        <p class="lead motto">
+            The world of reading where you can find the most exciting book <br> while connecting and sharing your thought with others 
+        </p>
+        <p class="lead">
+            <a class="btn btn-lg btn-secondary" href="{% url 'bookstore:search' %}" >Find your own book</a>
+        </p>
+    </div>
 {% endblock %}
 
 {% block scripts %}
