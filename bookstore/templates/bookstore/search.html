@@ -2,13 +2,52 @@
 {% load static %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static 'bookstore/styles/search.css' %}">
 {% endblock %}
 
 {% block title %}
+    Search
 {% endblock %}
 
 {% block body %}
+    <form class="search-bar" action="{% url 'bookstore:search' %}" method="post">            
+        {% csrf_token %}
+        <input id="query-string" type="text" name="search" placeholder="Search for book title, author, ISBN.." sc>
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+    <div class="list-item">
+        {% if books %}
+            {% for book in books %}
+                <div class="item" data-isbn="{{ book.isbn }}">
+                    <b>Title:</b> {{ book.title }}
+                    <br>
+                    <b>Author</b>: {{ book.author }}
+                    <br>
+                    <b>ISBN</b>: {{ book.isbn }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Sample -->
+        <!-- <div class="item" data-isbn="9780765396143">
+            Title: Chronicle of the Unhewn Throne: (The Emperor's Blades, The Providence of Fire, The Last Mortal Bond)
+            <br>
+            Author: Brian Staveley
+            <br>
+            ISBN: 9780765396143
+        </div>
+
+        <div class="item" data-isbn="9780765396143">
+            Title: Chronicle of the Unhewn Throne: (The Emperor's Blades, The Providence of Fire, The Last Mortal Bond)
+            <br>
+            Author: Brian Staveley
+            <br>
+            ISBN: 9780765396143
+        </div> -->
+    </div>
 {% endblock %}
 
 {% block scripts %}
+    <script defer src="{% static 'bookstore/scripts/search.js' %}"></script>
 {% endblock %}
