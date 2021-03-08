@@ -36,6 +36,11 @@ html {
     cursor: pointer;
 }
 
+.message {
+    text-align: center;
+    font-weight: bold;
+}
+
 .list-item {
     position: absolute;
     width: 800px;
@@ -48,22 +53,26 @@ html {
     padding: 10px;
     margin: 150px auto auto auto;
 
+    border: 10px solid white;
+    border-right: transparent;
     height: 450px;
     overflow: auto;
 }
 
-.list-item > div {
+.list-item > .item {
     color: rgb(62, 62, 62);
     text-decoration: none;
     border-radius: 10px;
     background-color: white;
     border: 2px solid black;
     padding: 10px;
-    margin: 10px;
+    margin: 5px 0px 5px -5px;
     cursor: pointer;
+
+    display: block;     /* Make a element as div block */
 }
 
-.list-item > div:hover {
+.list-item > .item:hover {
     box-shadow: 0 0 2pt 2pt black;
 }
 

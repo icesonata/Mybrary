@@ -1,0 +1,103 @@
+.main-pane {
+    border: 3px solid grey;
+    background-color: white;
+    width: 100%;
+    /* width: 900px; */
+    padding: 20px 40px 20px 20px;
+    /* height: 500px; */
+    color: rgb(42, 42, 42);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Navigation */
+.main-pane > a {
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 30px 0;
+}
+
+/* Resize the book's cover */
+.cover > img {
+    width: 160px;
+    height: 250px;
+}
+
+/* Comment section */
+.form-comment {
+    /* display: flex; */
+    margin: 0px 0px 20px 0px ;
+    text-align: right;
+}
+
+.form-comment textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    padding: 0px 40px;
+    /* right: 0px; */
+}
+
+.form-comment textarea:focus {
+    /* box-shadow: 0 0 2pt 2pt black; */
+    outline: none;
+}
+
+.form-comment button {
+    border-radius: 5px;
+    background-color: rgb(0, 79, 191);
+    border: 2px solid rgb(0, 79, 191);
+    padding: 0px 20px;
+    font-weight: bold;
+    color: white;
+    height: 40px;
+    
+    /* float: right; */
+    /* margin: 0 0 20px 0; */
+    /* margin-left: 40px; */
+}
+
+.form-comment button:hover {
+    cursor: pointer;
+}
+
+#input-username {
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+}
+
+.form-comment > label, #input-username {
+    float: left;
+}
+
+/* ::-webkit-input-placeholder {
+    text-align: center;
+    vertical-align:text-bottom;
+} */
+
+.user-avatar {
+    margin: 10px;
+    text-align: center;
+    width: 5em;
+    height: 5em;
+}
+
+.comment {
+    border: 2px solid grey;
+    border-radius: 5px;
+    width: 100%;
+    /* height: 100px; */
+    padding: 20px;
+    margin: 10px 0 10px 0;
+}
+
+.cmt-username, .cmt-username:hover {
+    text-decoration: none;
+    color: blue;
+}
+
+.timestamp {
+    text-align: right;
+}

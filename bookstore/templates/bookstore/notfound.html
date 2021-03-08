@@ -1,0 +1,27 @@
+{% extends "bookstore/layout.html" %}
+{% load static %}
+
+{% block styles %}
+    <style>
+        .container {
+            text-align: center;
+            font-size: xx-large;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Not found
+{% endblock %}
+
+{% block body %}
+    <!-- <h1 class="cover-heading">Online Book Station</h1> -->
+    <div class="container">
+        <p class="message">
+            Item not found
+        </p>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

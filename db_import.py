@@ -1,4 +1,4 @@
-import os, csv
+import csv
 from django.db import models
 from bookstore.models import Book
 

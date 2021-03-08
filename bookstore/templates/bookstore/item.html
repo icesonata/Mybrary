@@ -2,13 +2,120 @@
 {% load static %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static 'bookstore/styles/item.css' %}">
 {% endblock %}
 
 {% block title %}
+    {{ book.title }}
 {% endblock %}
 
 {% block body %}
+    <div class="main-pane">
+        <a class="nav" href="{{request.META.HTTP_REFERER}}">< Back to search</a>
+        <div class="book-info">
+            <div class="row">
+                <div class="col-3">
+                    <div class="cover">
+                        <img src="{{ imgsrc }}" alt="{{ book.title }}"/>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <h1>{{ book.title }}</h1>
+                    <p style="text-align: justify;">
+                        <b>ISBN</b>:            {{ book.isbn }}<br>
+                        <b>AUTHOR</b>:          {{ book.author }}<br>
+                        <b>PUBLISHED DATE</b>:  {{ book.publish_date }}<br>
+                        <b>AVERAGE RATING</b>:  {{ book.average_rating }}<br>
+                        <b>RATINGS COUNT</b>:   {{ book.ratings_count }}<br>
+                        <b>DESCRIPTION</b>:     {{ book.description }}<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p><i>Comment section:</i></p>
+        <form class="form-comment" action="{% url 'bookstore:item' isbn=book.isbn %}" method="post">            
+            {% csrf_token %}
+            <!-- <input id="query-string" type="text" name="search" placeholder="Search for book title, author, ISBN.." autocomplete="off"> -->
+            <textarea id="" name="content" rows="4" cols="50" placeholder="Write your thought about this book.."></textarea>
+            <label for="username"><b>Username: </b></label>
+            <input id="input-username" type="text" name="input-username" value="{{username|default:'anonymous'}}" readonly>
+            <button type="submit">Send</button>
+        </form>
+
+        <div class="container-comments">
+            {% for cmt in cmts %}
+                <div class="comment">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="user-avatar" style="text-align: center;">
+                                <i class="fas fa-user-circle fa-5x"></i>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <a class="cmt-username" href="#">{{ cmt.user }}</a>
+                            <br>
+                            <p style="text-align: justify;">
+                                {{ cmt.content }}
+                            </p>
+                            <div class="timestamp">
+                                <i>{{cmt.timestamp|date:"H:i:s, d/m/Y"}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- <div class="comment">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="user-avatar" style="text-align: center;">
+                            <i class="fas fa-user-circle fa-5x"></i>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <a class="username" href="#">admin</a>
+                        <br>
+                        <p style="text-align: justify;">
+                            YESSSSS
+                        </p>
+                        <div class="timestamp">
+                            <i>
+                                17:14:53,
+                                08-03-2021
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="user-avatar" style="text-align: center;">
+                            <i class="fas fa-user-circle fa-5x"></i>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <a class="username" href="#">admin</a>
+                        <br>
+                        <p style="text-align: justify;">
+                            Ey b0ss, I habe a seizure
+                        </p>
+                        <div class="timestamp">
+                            <i>
+                                17:14:53,
+                                08-03-2021
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
 {% endblock %}
 
 {% block scripts %}
+    <script defer src="{% static 'bookstore/scripts/item.js' %}"></script>
 {% endblock %}

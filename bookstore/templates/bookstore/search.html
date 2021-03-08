@@ -12,21 +12,23 @@
 {% block body %}
     <form class="search-bar" action="{% url 'bookstore:search' %}" method="post">            
         {% csrf_token %}
-        <input id="query-string" type="text" name="search" placeholder="Search for book title, author, ISBN.." sc>
+        <input id="query-string" type="text" name="search" placeholder="Search for book title, author, ISBN..">
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 
     <div class="list-item">
         {% if books %}
             {% for book in books %}
-                <div class="item" data-isbn="{{ book.isbn }}">
-                    <b>Title:</b> {{ book.title }}
+                <a class="item" data-isbn="{{ book.isbn }}" href="{% url 'bookstore:item' isbn=book.isbn %}">
+                    <b>Title</b>: {{ book.title }}
                     <br>
                     <b>Author</b>: {{ book.author }}
                     <br>
                     <b>ISBN</b>: {{ book.isbn }}
-                </div>
+                </a>
             {% endfor %}
+        {% else %}
+            <p class="message">Item not found</p>
         {% endif %}
 
         <!-- Sample -->
