@@ -30,6 +30,7 @@ def search(request):
     })
 
 def item(request, isbn):
+    username = None
     book = Book.objects.filter(isbn=isbn)[0]
     if book:
         # Call Google Book api for book cover
@@ -47,9 +48,12 @@ def item(request, isbn):
         
         # Get comments on this book
         cmts = Comment.objects.filter(book__isbn__contains=isbn)[::-1]
-        # cmts = Comment.objects.first()
-        print(cmts)
-        context = {"book": book, "imgsrc": imgsrc, "cmts": cmts}
+        
+        # Check and get user's username
+        if request.user.is_authenticated:
+            username = request.user.username
+
+        context = {"book": book, "imgsrc": imgsrc, "cmts": cmts, "username": username}
         return render(request, "bookstore/item.html", context)
     else:
         return render(request, "bookstore/notfound.html")

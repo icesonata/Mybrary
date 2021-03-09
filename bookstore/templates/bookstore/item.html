@@ -11,7 +11,7 @@
 
 {% block body %}
     <div class="main-pane">
-        <a class="nav" href="{{request.META.HTTP_REFERER}}">< Back to search</a>
+        <!-- <a class="nav" href="{{request.META.HTTP_REFERER}}">< Back to search</a> -->
         <div class="book-info">
             <div class="row">
                 <div class="col-3">
@@ -33,10 +33,10 @@
             </div>
         </div>
 
+        <!-- Comment section -->
         <p><i>Comment section:</i></p>
         <form class="form-comment" action="{% url 'bookstore:item' isbn=book.isbn %}" method="post">            
             {% csrf_token %}
-            <!-- <input id="query-string" type="text" name="search" placeholder="Search for book title, author, ISBN.." autocomplete="off"> -->
             <textarea id="" name="content" rows="4" cols="50" placeholder="Write your thought about this book.."></textarea>
             <label for="username"><b>Username: </b></label>
             <input id="input-username" type="text" name="input-username" value="{{username|default:'anonymous'}}" readonly>
@@ -54,18 +54,19 @@
                         </div>
                         <div class="col-10">
                             <a class="cmt-username" href="#">{{ cmt.user }}</a>
+                            <div class="timestamp">
+                                <i>{{cmt.timestamp|date:"H:i:s, d/m/Y"}}</i>
+                            </div>
                             <br>
                             <p style="text-align: justify;">
                                 {{ cmt.content }}
                             </p>
-                            <div class="timestamp">
-                                <i>{{cmt.timestamp|date:"H:i:s, d/m/Y"}}</i>
-                            </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
 
+            <!-- Sample comment -->
             <!-- <div class="comment">
                 <div class="row">
                     <div class="col-2">
@@ -74,44 +75,21 @@
                         </div>
                     </div>
                     <div class="col-10">
-                        <a class="username" href="#">admin</a>
-                        <br>
-                        <p style="text-align: justify;">
-                            YESSSSS
-                        </p>
-                        <div class="timestamp">
+                        <a class="username" href="#" style="color: blue;">adminadminadminadminadminadminadminadminadminadmin</a>
+                        <div class="timestamp" style="float: right;">
                             <i>
                                 17:14:53,
                                 08-03-2021
                             </i>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="user-avatar" style="text-align: center;">
-                            <i class="fas fa-user-circle fa-5x"></i>
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <a class="username" href="#">admin</a>
                         <br>
                         <p style="text-align: justify;">
-                            Ey b0ss, I habe a seizure
+                            NO SAFE PLACE LEFT At great cost to the Garrison and the Survey Corps, Commander Erwin has managed to recover Eren from the Titans who tried to carry him off. But during the battle, Eren manifested yet another power he doesn't understand. As Eren and Krista find new enemies, the Survey Corps faces threats from both inside and outside the walls. And what will happen to Ymir, now that she has decided to make herself the Titans' prize?
                         </p>
-                        <div class="timestamp">
-                            <i>
-                                17:14:53,
-                                08-03-2021
-                            </i>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
     </div>
     
 {% endblock %}
