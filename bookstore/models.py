@@ -26,10 +26,12 @@ class Book(models.Model):
                 """
 
 class Profile(models.Model):
+    firstname = models.CharField(max_length=16, blank=True)
+    lastname = models.CharField(max_length=16, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.png', upload_to='usr')
     image = models.ImageField(default='default.jpg', upload_to='usr')
-    phone = models.CharField(max_length=10, blank=True)
+    phone = models.CharField(max_length=16, blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
