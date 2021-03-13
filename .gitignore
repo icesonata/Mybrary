@@ -131,3 +131,5 @@ dmypy.json
 # Django's
 .secret_key
 usr/
+default.png
+default.jpg
