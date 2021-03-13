@@ -14,7 +14,7 @@ class Book(models.Model):
     average_rating = models.DecimalField(max_digits=3, decimal_places=2)
     ratings_count = models.IntegerField()
     page_count = models.IntegerField()
-    description = models.CharField(max_length=4096)
+    description = models.CharField(max_length=int(2**14))
 
     def __str__(self):
         return f"""
