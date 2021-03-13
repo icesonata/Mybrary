@@ -2,12 +2,48 @@
 {% load static %}
 
 {% block styles %}
+    <style>
+        form {
+            text-align: center;
+        }
+        label {
+            width: 100px;
+        }
+        button {
+            width: 220px;
+            margin-left: 110px;
+            text-align: left;
+        }
+    </style>
 {% endblock %}
 
 {% block title %}
+    Login
 {% endblock %}
 
 {% block body %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Login</leSgend>
+            </fieldset>
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input type="text" name="username" placeholder="Username">
+                <br>
+                <label for="password">Password: </label>
+                <input type="password" name="password" placeholder="Password">
+                <br>
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Not a member? <a class="ml-2" href="register">Sign up now</a>
+            </small>
+        </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
