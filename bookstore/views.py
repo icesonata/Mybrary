@@ -35,8 +35,11 @@ def item(request, isbn):
     if book:
         # Call Google Book api for book cover
         res = requests.get(f"https://www.googleapis.com/books/v1/volumes", params={"q": f"isbn:{book.isbn}"})
-        imgsrc = res.json()['items'][0]['volumeInfo']['imageLinks']['thumbnail']
-
+        try:
+            imgsrc = res.json()['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+        except Exception:
+            imgsrc = None
+            
         # If there is a new comment
         if request.method == "POST":
             new_cmt = Comment(
