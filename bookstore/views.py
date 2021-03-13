@@ -104,6 +104,7 @@ def profile(request):
     return render(request, "bookstore/profile.html", context)
     
 
+# Login page
 # def loginPage(request):
 #     #form = AuthenticationForm()
 #     if request.method == "POST":

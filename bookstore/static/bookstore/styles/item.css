@@ -78,10 +78,16 @@
 } */
 
 .user-avatar {
-    margin: 10px;
+    margin: 0 10px 20px 10px;
     text-align: center;
     width: 5em;
     height: 5em;
+}
+
+.user-avatar > img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
 }
 
 .comment {
