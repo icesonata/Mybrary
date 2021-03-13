@@ -33,7 +33,7 @@ class Comment(models.Model):
     book =  models.ForeignKey(Book, on_delete=models.CASCADE, related_name="book_comment")
     # timestamp = models.DateTimeField(default=datetime.datetime.now().replace(microsecond=0))
     timestamp = models.DateTimeField(default=timezone.now())
-    content = models.CharField(max_length=4096)
+    content = models.CharField(max_length=int(2**14))
 
     def __str__(self):
         return f"""
