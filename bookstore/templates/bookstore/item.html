@@ -39,7 +39,7 @@
             {% csrf_token %}
             <textarea id="" name="content" rows="4" cols="50" placeholder="Write your thought about this book.."></textarea>
             <label for="username"><b>Username: </b></label>
-            <input id="input-username" type="text" name="input-username" value="{{username|default:'anonymous'}}" readonly>
+            <input id="input-username" type="text" name="input-username" value="{{username|default:'anonymous'}}" readonly disabled>
             <button type="submit">Send</button>
         </form>
 

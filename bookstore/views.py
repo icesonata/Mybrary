@@ -37,7 +37,7 @@ def search(request):
     })
 
 def item(request, isbn):
-    username = None
+    username = 'anonymous'      # Default username
     book = Book.objects.filter(isbn=isbn)[0]
     if book:
         # Call Google Book api for book cover
@@ -47,10 +47,14 @@ def item(request, isbn):
         except Exception:
             imgsrc = None
             
+        # Check and get user's username
+        if request.user.is_authenticated:
+            username = request.user.username
+
         # If there is a new comment
         if request.method == "POST":
             new_cmt = Comment(
-                user=User.objects.get(username=request.POST['input-username']),
+                user=User.objects.get(username=username),
                 book=Book.objects.get(isbn=isbn),
                 content=request.POST['content']
             )
@@ -58,10 +62,6 @@ def item(request, isbn):
         
         # Get comments on this book
         cmts = Comment.objects.filter(book__isbn__contains=isbn)[::-1]
-        
-        # Check and get user's username
-        if request.user.is_authenticated:
-            username = request.user.username
 
         context = {"book": book, "imgsrc": imgsrc, "cmts": cmts, "username": username}
         return render(request, "bookstore/item.html", context)
