@@ -24,23 +24,6 @@ def search(request):
 def item(request, isbn):
     return render(request, "bookstore/item.html")
 
-# def loginPage(request):
-#     #form = AuthenticationForm()
-#     if request.method == "POST":
-#         username = request.POST.get("username")
-#         password = request.POST.get("password")
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect(reverse('bookstore:index'))
-#         else:
-#             return render (request, "bookstore/login.html")
-
-#     return render (request, "bookstore/login.html")
-
-# def logoutPage(request):
-#     return render(request, "bookstore/logout.html")
-
 def register(request):
     form = CreateUserForm()
 
@@ -76,3 +59,20 @@ def profile(request):
     }
     return render(request, "bookstore/profile.html", context)
     
+
+# def loginPage(request):
+#     #form = AuthenticationForm()
+#     if request.method == "POST":
+#         username = request.POST.get("username")
+#         password = request.POST.get("password")
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect(reverse('bookstore:index'))
+#         else:
+#             return render (request, "bookstore/login.html")
+
+#     return render (request, "bookstore/login.html")
+
+# def logoutPage(request):
+#     return render(request, "bookstore/logout.html")
