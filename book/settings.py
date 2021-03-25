@@ -1,4 +1,3 @@
-import django_heroku
 """
 Django settings for book project.
 
@@ -128,6 +127,3 @@ LOGIN_URL = '/login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'bookstore', 'static', 'bookstore', 'media')
 
 MEDIA_URL = '/media/'
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
