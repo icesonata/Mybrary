@@ -1,0 +1,101 @@
+html {
+    scroll-behavior: auto;
+}
+
+.search-bar {
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-bar input {
+    width: 800px;
+    height: 42px;
+    border-radius: 50px;
+    border: 2px solid grey;
+    padding: 0px 40px;
+    right: 0px;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 2pt 2pt white;
+    outline: none;
+}
+
+.search-bar button {
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    padding: 0px 10px;
+    margin-left: -40px;
+}
+
+.search-bar button:hover {
+    cursor: pointer;
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+}
+
+.list-item {
+    position: absolute;
+    width: 800px;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(62, 62, 62);
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    margin: 150px auto auto auto;
+
+    border: 10px solid white;
+    border-right: transparent;
+    height: 510px;
+    overflow: auto;
+}
+
+.list-item > .item {
+    color: rgb(62, 62, 62);
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px 0px 5px -5px;
+    cursor: pointer;
+
+    display: block;     /* Make a element as div block */
+}
+
+.list-item > .item:hover {
+    box-shadow: 0 0 2pt 2pt black;
+}
+
+/* Customize scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px black; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(145, 136, 136); 
+    border-radius: 10px;
+    height: 20%;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(47, 47, 47); 
+}

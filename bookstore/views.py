@@ -23,9 +23,9 @@ def search(request):
     if request.method == "POST":
         usr_input = "|".join(request.POST["search"].split())
         # Get results from three different fields by applying regex
-        result_1 = Book.objects.filter(title__iregex=rf"{usr_input}")
-        result_2 = Book.objects.filter(author__iregex=rf"{usr_input}")
-        result_3 = Book.objects.filter(isbn__iregex=rf"{usr_input}")
+        result_1 = Book.objects.filter(title__iregex=str(usr_input))
+        result_2 = Book.objects.filter(author__iregex=str(usr_input))
+        result_3 = Book.objects.filter(isbn__iregex=str(usr_input))
         
         # Combine and remove duplicate from three result lists
         books = list(set(itertools.chain(result_1, result_2, result_3)))
@@ -41,7 +41,7 @@ def item(request, isbn):
     book = Book.objects.filter(isbn=isbn)[0]
     if book:
         # Call Google Book api for book cover
-        res = requests.get(f"https://www.googleapis.com/books/v1/volumes", params={"q": f"isbn:{book.isbn}"})
+        res = requests.get("https://www.googleapis.com/books/v1/volumes", params={"q": "isbn:{}".format(book.isbn)})
         try:
             imgsrc = res.json()['items'][0]['volumeInfo']['imageLinks']['thumbnail']
         except Exception:

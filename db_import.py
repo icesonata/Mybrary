@@ -18,7 +18,7 @@ def add_book():
                 description=item[7]      
             )
             dt.save()
-            print(f"Added {dt.isbn}")
+            print("Added {}".format(dt.isbn))
 
 if __name__ == '__main__':
     add_book()

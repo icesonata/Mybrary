@@ -25,7 +25,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+	'1a0e4e1b8fd2403b8912d6ed4d1edbe4-10-c821a80-80.vlab.uit.edu.vn',
+	'localhost',
+	'0.0.0.0',
+	'127.0.0.1',
+]
 
 
 # Application definition
